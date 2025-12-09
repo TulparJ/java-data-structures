@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+
+class Expense {
+    String name;
+    double amount;
+
+    public Expense(String name, double amount) {
+        this.name = name;
+        this.amount = amount;
+    }
+}
+
+public class SimpleExpenseTracker {
+    private ArrayList<Expense> expenses = new ArrayList<>();
+
+    public void addExpense(String name, double amount) {
+        expenses.add(new Expense(name, amount));
+    }
+
+    public double totalSpent() {
+        double sum = 0;
+        for (Expense e : expenses) {
+            sum += e.amount;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        SimpleExpenseTracker tracker = new SimpleExpenseTracker();
+
+        tracker.addExpense("Coffee", 4.50);
+        tracker.addExpense("Lunch", 12.00);
+        tracker.addExpense("Uber", 18.75);
+
+        System.out.println("Total spent today: $" + tracker.totalSpent());
+    }
+}
