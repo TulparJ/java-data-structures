@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class DailyNotePad {
+    private ArrayList<String> notes = new ArrayList<>();
+
+    public void addNote(String note) {
+        notes.add(note);
+    }
+
+    public void showNotes() {
+        System.out.println("\nYour notes today:");
+        for (String n : notes) {
+            System.out.println("- " + n);
+        }
+    }
+
+    public static void main(String[] args) {
+        DailyNotePad pad = new DailyNotePad();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Write a note (or type 'exit'): ");
+            String input = sc.nextLine();
+
+            if (input.equalsIgnoreCase("exit")) break;
+
+            pad.addNote(input);
+        }
+
+        pad.showNotes();
+    }
+}
