@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class QuickTaskManager {
+    private ArrayList<String> tasks = new ArrayList<>();
+
+    public void addTask(String task) {
+        tasks.add(task);
+    }
+
+    public void showTasks() {
+        System.out.println("\nYour Tasks:");
+        for (String t : tasks) {
+            System.out.println("- " + t);
+        }
+    }
+
+    public static void main(String[] args) {
+        QuickTaskManager manager = new QuickTaskManager();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Add a task (or type 'done'): ");
+            String input = sc.nextLine();
+
+            if (input.equalsIgnoreCase("done")) break;
+
+            manager.addTask(input);
+        }
+
+        manager.showTasks();
+    }
+}
